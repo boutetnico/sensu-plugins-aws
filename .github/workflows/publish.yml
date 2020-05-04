@@ -51,3 +51,5 @@ jobs:
 
       - name: Publish to Bonsai
         run: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-aws-boutetnico
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
