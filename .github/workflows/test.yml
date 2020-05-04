@@ -1,0 +1,23 @@
+---
+name: Test
+
+on: [push]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+      - run: gem install bundler -v 2.1
+
+      - run: bundle install
+
+      - run: bundle exec rake default
+
+      - run: gem build sensu-plugins-aws.gemspec
+
+      - run: gem install sensu-plugins-aws-*.gem
