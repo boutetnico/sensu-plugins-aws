@@ -49,7 +49,13 @@ jobs:
       # - name: Publish to RubyGems
       #   run: gem push sensu-plugins-aws-*.gem
 
+      - name: Get tag name
+        id: tag_name
+        run: echo ::set-output name=SOURCE_TAG::${GITHUB_REF#refs/tags/}
+
       - name: Publish to Bonsai
         run: bonsai/ruby-runtime/travis-build-ruby-plugin-assets.sh sensu-plugins-aws-boutetnico
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRAVIS_REPO_SLUG: ${{ GITHUB_REPOSITORY }} # Needed in travis-build-ruby-plugin-assets.sh
+          TRAVIS_TAG: ${{ steps.branch_name.outputs.SOURCE_TAG }} # Needed in travis-build-ruby-plugin-assets.sh
