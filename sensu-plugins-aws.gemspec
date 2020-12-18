@@ -35,7 +35,7 @@ Gem::Specification.new do |s| # rubocop:disable Metrics/BlockLength
 
   s.add_runtime_dependency 'aws-sdk',           '~> 3.0'
   s.add_runtime_dependency 'erubis',            '2.7.0'
-  s.add_runtime_dependency 'fog',               '~> 2.2'
+  s.add_runtime_dependency 'fog-aws',           '~> 3.7'
   s.add_runtime_dependency 'fog-core',          '~> 2.2.3'
   s.add_runtime_dependency 'nokogiri',          ['>= 1.10.4', '< 2.0']
   s.add_runtime_dependency 'rest-client',       '2.1.0'
